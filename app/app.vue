@@ -15,7 +15,7 @@ useHead({
     lang: 'en'
   }
 })
-const { isLoading } = useLoadingIndicator()
+
 const appear = ref(false)
 const appeared = ref(false)
 
@@ -36,20 +36,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <UApp :toaster="{ expand: false }">
-    <AppHeader />
-
-    <UMain class="relative">
-      <HeroBackground
-        class="absolute w-full -top-px transition-all text-primary shrink-0"
-        :class="[
-          isLoading ? 'animate-pulse' : (appear ? '' : 'opacity-0'),
-          appeared ? 'duration-[400ms]': 'duration-1000'
-        ]"
-      />
-      <NuxtPage />
-    </UMain>
-
-    <AppFooter />
-  </UApp>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
